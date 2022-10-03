@@ -1,0 +1,25 @@
+<div class="bg-white" style="border-radius: 10px; margin: 1em 0.5em">
+    <h2>{{car["year"]}} {{car["make"]}} {{car["model"]}}</h2>
+
+    <p><strong>Price  : {{car["price"]}} $</strong></p>
+    <p><strong>Engine : {{car["engine"]}}</strong></p>
+
+    
+    {% if car["autonomus"] %}
+        <p>this car have autonomus functionality.</p>
+    {% else %}
+        <p>this car <strong>dose not</strong> have autonomus functionality.</p>
+    {% endif %}
+
+    
+    {% if car["sold"] %}
+        <p>sold in {{car["sold"]|join(' , ')}}</p>
+    {% else %}
+        <p>not country available.</p>
+    {% endif %}
+
+    <h5>ID {{id}}</h5>
+    
+    <a href="/edit?id={{id}}" class="btn btn-warning" style="margin: 0.3pm">Edit</a>
+    <a href="/delete/{{id}}" class="btn btn-danger" style="margin: 0.3pm">Delete</a>
+</div>

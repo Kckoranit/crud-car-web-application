@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <div class="container-fluid">
+        <a href="/cars" class="navbar-brand">Cars</a>
+
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a href="/create" method="GET" class="nav-link">create car</a>
+            </li>
+        </ul>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <form action="/search" method="POST" class="d-flex">
+                <input type="search" class="form-control me-2" placeholder="search car by id" name="id" aria-label="search">
+                <button class="btn btn-outline-light text-white" type="submit">search</button>
+            </form>
+        </div>
+
+    </div>
+
+</nav>

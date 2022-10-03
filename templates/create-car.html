@@ -1,0 +1,55 @@
+{% include '/components/header.html' %}
+
+<div class="container bg-white" style="margin-top: 1em;">
+    <form action="/cars" method="POST">
+        <div class="mb-3">
+            <label for="make" class="form-label">Make</label>
+            <input type="text" class="form-control" name="make" aria-describedby="makeDes">
+        </div>
+
+        <div class="mb-3">
+            <label for="model" class="form-label">Model</label>
+            <input type="text" class="form-control" name="model" aria-describedby="modelDes">
+        </div>
+
+        <div class="mb-3">
+            <label for="year" class="form-label">Year</label>
+            <input type="text" class="form-control" name="year" aria-describedby="yearDes">
+        </div>
+
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="text" class="form-control" name="price" aria-describedby="priceDes">
+        </div>
+
+        <div class="mb-3">
+            <label for="engine" class="form-label">Engine</label>
+            <input type="text" class="form-control" name="engine" aria-describedby="engineDes">
+        </div>
+
+        <div class="mb-3">
+            <label for="autonomus" class="form-label">Is the car autonomus?</label>
+            <select class="form-select" name="autonomus" id="autonomus">
+                <option selected value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <p>Where is the car sold?</p>
+            <div class="form-check">
+
+                
+                {% for i,j in countries %}
+                    <input class="form-check-input" type="checkbox" name="sold" value="{{i}}">{{j}}<br>
+                {% endfor %}
+                    
+                
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+</div>
+
+{% include '/components/footer.html' %}

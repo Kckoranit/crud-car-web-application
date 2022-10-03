@@ -1,0 +1,89 @@
+{% include '/components/header.html' %}
+
+<style>
+    body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+</style>
+
+<div class="container">
+    
+    <div class="container" style="margin-top: 1em;">
+        <form action="/cars/{{id}}" method="POST">
+            <div class="mb-3">
+                <label for="make" class="form-label">Make</label>
+                <input type="text" class="form-control" name="make" value="{{car['make']}}" aria-describedby="makeDes">
+            </div>
+
+            <div class="mb-3">
+                <label for="model" class="form-label">Model</label>
+                <input type="text" class="form-control" name="model" value="{{car['model']}}" aria-describedby="modelDes">
+            </div>
+
+            <div class="mb-3">
+                <label for="year" class="form-label">Year</label>
+                <input type="text" class="form-control" name="year" value="{{car['year']}}" aria-describedby="yearDes">
+            </div>
+
+            <div class="mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input type="text" class="form-control" name="price" value="{{car['price']}}" aria-describedby="priceDes">
+            </div>
+
+            <div class="mb-3">
+                <label for="engine" class="form-label">Engine</label>
+                <input type="text" class="form-control" name="engine" value="{{car['engine']}}" aria-describedby="engineDes">
+            </div>
+
+            <div class="mb-3">
+                <label for="autonomus" class="form-label">Is the car autonomus?</label>
+                <select class="form-select" name="autonomus" id="autonomus">
+                    
+                    {% if car['autonomus'] %}
+                        <option selected value="true">Yes</option>
+                        <option value="false">No</option>
+                    {% else %}
+                        <option value="true">Yes</option>
+                        <option selected value="false">No</option>
+                    {% endif %}
+                        
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <p>Where is the car sold?</p>
+                <div class="form-check">
+                    
+                    {% for ct in countries %}
+                        
+                        {% if ct[0] in car['sold'] %}
+                            <input class="form-check-input" type="checkbox" name="sold" value="{{ct[0]}}" checked>{{ct[1]}}<br>
+                        {% else %}
+                            <input class="form-check-input" type="checkbox" name="sold" value="{{ct[0]}}">{{ct[1]}}<br>
+                        {% endif %}
+                            
+                    {% endfor %}
+                        
+                </div>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
+    
+</div>
+
+{% include '/components/footer.html' %}

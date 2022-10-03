@@ -1,0 +1,13 @@
+{% include '/components/header.html' %}
+
+<div class="container-fluid" style="text-align: center;">
+    {% for id, car in cars %}
+        <div class="row justify-content-center">
+            <div class="col col-sm-6 bg-white" style="border: 1px solid black; border-radius: 10px; margin: 1em 0.5em">
+                {% include '/components/car.html' %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% include '/components/footer.html' %}
